@@ -86,3 +86,30 @@ v1 == 4
 # Comparing two vectors element by element
 v2 <- c(7,6,5,4,3,2,1)
 v1 < v2
+
+
+## Vector Indexing and Slicing
+# INDEXING - Each element of the vector can be accessed by [] notation
+# vector[1] is the first element, vector[2] is the second and so on.
+# Indexing also works with named vectors (names())
+# MULTIPLE INDEXING - get multiple elements through the c() function
+# inside the [] notation. vector[c(1,3,4)] returns the elements 1,3 and 4
+# 
+
+v1 <- c(1,2,3,4,5,6)
+v2 <- c('a', 'b', 'c', 'd', 'e', 'f')
+
+v1[1]
+v1[4]
+v1[c(1,2,4)]
+v2[c(1,2,4)]
+
+# SLICING - Get an interval of a vector using : inside the []
+# Get the second up to the fifth element: vector[2:5]
+v1[2:5]
+
+# LOGICAL MASKING - Set a condition to a vector and use the result 
+# in the slice place. vector[condition using vector]
+v1[v1 > 3]
+filter <- v1 > 3
+v1[filter]

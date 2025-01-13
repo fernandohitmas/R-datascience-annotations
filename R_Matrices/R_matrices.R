@@ -51,3 +51,43 @@ m1^m1
 
 # Mathematical matrix multiplication: %*%
 m1 %*% m1
+
+# Matrix Operations
+# https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+st.matrix
+
+colSums(st.matrix)
+rowSums(st.matrix)
+rowMeans(st.matrix) 
+
+# rbind to add a new row
+# cbind to add a new column
+new.st <- c(111, 112, 113, 114, 115)
+st.matrix <- rbind(st.matrix, new.st)
+st.matrix
+avg.st <- rowMeans(st.matrix)
+st.matrix <- cbind(st.matrix, avg.st)
+st.matrix
+
+# Matrix selection and indexing
+# The dimensions are separated by ","
+# To get all elements of a row: matrix[n,]
+# To get all elements of a column: matrix[,n]
+# To get interval use the ":" notation
+m1
+m1[1,]
+m1[,2]
+m1[1:3, 1:3]
+m1[3:5, 4:5]
+
+# Factor and categorical matrices
+# factor(, ordered, levels)
+# Nominal categorical variables (no order) vs Ordinal (Ordered)
+animal <- c('d', 'c', 'd', 'c', 'c')
+id <- c(1,2,3,4,5)
+fact.animal <- factor(animal)
+temps <- c('freezing', 'warm', 'hot', 'hot', 'hot', 'freezing', 'warm')
+fact.temp <- factor(temps, ordered = TRUE, levels = c('freezing', 'warm', 'hot'))
+fact.temp
+summary(temps)
+summary(fact.temp)

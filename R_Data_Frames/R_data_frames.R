@@ -1,3 +1,4 @@
+# to indicate a specific column use the name of the columns of interest
 ## One of the most important data structures in R
 # Able to use different types of data inside the same object
 
@@ -24,3 +25,36 @@ df <- data.frame(days,temp,rain)
 df
 str(df)
 summary(df)
+
+# Data Frame Indexing and Selection
+# Slicing data is similar to matrix slicing
+# [, c(column1, column2...)]
+# Another option is dataframe$column, but in both ways the data returned 
+# comes in a vector instead of a dataframe
+# which can be obtained with dataframe[columns] (no comma)
+df
+df$days
+df[,'days']
+df['days']
+df[c('rain','days')]
+
+# SUBSET - returns a subset of the dataframe based on a condition
+# usually the condition is a comparison for a whole column
+# ??subset
+# example: subset(airquality, Day == 1, select = -Temp)
+# selects the data from airqulity datafrarme where day is 1
+# and selects all the columns, except for Temp
+subset(df, temp<22)
+subset(df, temp<22, select=c('days', 'rain'))
+subset(df, temp<22, select=-temp)
+
+# ORDER - to order a dataframe
+# help(order)
+# the function order returns the indexes of the dataframe
+# corresponding to the ordered column
+sorted.temp <- order(df[,'temp'])
+df[sorted.temp,]
+sorted.temp <- order(df[,'temp'], decreasing = TRUE)
+df[sorted.temp,]
+sorted.temp <- order(-df[,'temp']) # does the same as decreasing argument
+df[sorted.temp,]

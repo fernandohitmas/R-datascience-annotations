@@ -22,34 +22,31 @@ if (is.matrix(mat)) {
 # length 3, will print out the elements in order from high to low.
 # You must use if,else if, and else statements for your logic. 
 # (This code will be relatively long)
-vec <- c(3,20,100)
-if ((vec[1] < vec[2]) & (vec[1] < vec[3]) & (vec[2] < vec[3])) {
-   paste(vec[3], vec[2], vec[1])
-}else if ((vec[1] < vec[2]) & (vec[1] < vec[3]) & (vec[3] < vec[2])) {
-   paste(vec[2], vec[3], vec[1])
-}else if ((vec[2] < vec[1]) & (vec[2] < vec[3]) & (vec[1] < vec[3])) {
-   paste(vec[3], vec[1], vec[2])
-}else if ((vec[2] < vec[1]) & (vec[2] < vec[3]) & (vec[3] < vec[1])) {
-   paste(vec[1], vec[3], vec[2])
-}else if ((vec[3] < vec[1]) & (vec[3] < vec[2]) & (vec[1] < vec[2])) {
-   paste(vec[2], vec[1], vec[3])
-}else if ((vec[3] < vec[1]) & (vec[3] < vec[2]) & (vec[2] < vec[1])) {
-   paste(vec[1], vec[2], vec[3])
+vec <- c(3,20,1)
+
+if (vec[1] > vec[2]){
+   first <- vec[1]
+   second <- vec[2]
+} else {
+   first <- vec[2]
+   second <- vec[1]
 }
 
+if ((vec[3] > first) & (vec[3] > second)){
+   third <- second
+   second <- first
+   first <- vec[3]
+}else if((vec[3] < first) & vec[3] < second){
+   third <- vec[3]
+}
+paste(first, second, third)
 # Ex 4: Write a script that uses if,else if, and else statements to 
 # print the max element in a numeric vector with 3 elements.
 vec <- c(3,2,1)
-if ((vec[1] < vec[2]) & (vec[1] < vec[3]) & (vec[2] < vec[3])) {
-   paste(vec[3])
-}else if ((vec[1] < vec[2]) & (vec[1] < vec[3]) & (vec[3] < vec[2])) {
-   paste(vec[2])
-}else if ((vec[2] < vec[1]) & (vec[2] < vec[3]) & (vec[1] < vec[3])) {
-   paste(vec[3])
-}else if ((vec[2] < vec[1]) & (vec[2] < vec[3]) & (vec[3] < vec[1])) {
-   paste(vec[1])
-}else if ((vec[3] < vec[1]) & (vec[3] < vec[2]) & (vec[1] < vec[2])) {
-   paste(vec[2])
-}else if ((vec[3] < vec[1]) & (vec[3] < vec[2]) & (vec[2] < vec[1])) {
-   paste(vec[1])
+if ((vec[1] > vec[2]) & (vec[1] > vec[3])){
+   print(vec[1])
+}else if(vec[2] > vec[3]){
+   print(vec[2])
+}else{
+   print(vec[3])
 }

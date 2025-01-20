@@ -14,3 +14,15 @@ slice(flights, 14:20)
 # arrange to order 
 # desc function in a column changes to descending
 head(arrange(flights, year, month, day, arr_time))
+
+# select - select columns
+head(select(flights, carrier, arr_time))
+
+# rename - rename columns
+head(rename(flights, airline_carrier = carrier))
+
+# distinct
+distinct(select(flights, carrier))
+
+# mutate
+head(mutate(flights, new_col = arr_delay-dep_delay))

@@ -9,7 +9,8 @@ dt.flights <- as.data.table(flights)
 head(dt.flights[month == 11 & day == 3 & carrier == "AA"])
 
 # slice data
-dt.flights[14:20]
+dt.flights[,c(1,3,5)] # select columns
+dt.flights[1:10,] # select rows
 
 # sort data
 # minus sign changes the order to descending
@@ -39,3 +40,9 @@ head(unique(dt.flights[, .(carrier, month, day)]))
 dt.flights[, `:=`(new_col = arr_delay - dep_delay)]
           # new_col2 = operation)]
 head(dt.flights)
+
+# group by
+dt.flights[,.(mean_air_time = mean(air_time, na.rm=TRUE))]
+
+# sample
+dt.flights[sample(.N, 0.1)]

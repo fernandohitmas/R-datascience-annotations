@@ -24,5 +24,15 @@ head(rename(flights, airline_carrier = carrier))
 # distinct
 distinct(select(flights, carrier))
 
-# mutate
+# mutate operations with columns adding it to the end of the dataset
 head(mutate(flights, new_col = arr_delay-dep_delay))
+
+# transmute returns only the resulting column
+head(transmute(flights, new_col = arr_delay-dep_delay))
+
+# Summarise - group by
+summarise(flights, avg_air_time=mean(air_time, na.rm=TRUE))
+
+# sample of rows (n and fraction)
+sample_n(flights, 5)
+sample_frac(flights, 0.01)

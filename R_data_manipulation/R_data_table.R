@@ -45,4 +45,10 @@ head(dt.flights)
 dt.flights[,.(mean_air_time = mean(air_time, na.rm=TRUE))]
 
 # sample
-dt.flights[sample(.N, 0.1)]
+dt.flights[sample(.N, 10)]
+
+# piping
+dt.cars <- as.data.table(mtcars)
+dt.cars[mpg > 20
+        ][sample(.N, 5)
+        ][order(-mpg)]

@@ -36,3 +36,11 @@ summarise(flights, avg_air_time=mean(air_time, na.rm=TRUE))
 # sample of rows (n and fraction)
 sample_n(flights, 5)
 sample_frac(flights, 0.01)
+
+# Pipe operator
+df <- mtcars
+result <- df %>% 
+    filter(mpg>20) %>%
+    sample_n(size=5) %>%
+    arrange(desc(mpg))
+print(result)

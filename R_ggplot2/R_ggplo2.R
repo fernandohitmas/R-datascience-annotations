@@ -40,3 +40,40 @@ pl1 + geom_point(
     size=5)
 pl2 <- pl1 + geom_point(aes(color=hp), size=5)
 pl2 + scale_color_gradient(low="blue", high="red")
+
+### Barplots
+df <- mpg
+
+# DATA AND AESTHETICS LAYERS
+pl <- ggplot(df, aes(x=class))
+
+# GEOMETRY
+pl + geom_bar(aes(fill = drv), position = 'dodge')
+pl + geom_bar(aes(fill = drv), position = 'fill')
+
+
+### Boxplots
+df <- mtcars
+
+pl <- ggplot(df, aes(x=factor(cyl), y=mpg))
+
+pl + geom_boxplot() + coord_flip()
+
+pl + geom_boxplot(aes(fill=factor(cyl)))
+
+
+### 2 Variables plot
+
+# DATA AND AESTHETICS LAYERS
+library(hexbin)
+pl <- ggplot(movies, aes(x = year, y = rating))
+
+pl2 <- pl + geom_bin2d(binwidth=c(5,1))
+
+pl2 + scale_fill_gradient(high='red', low='green')
+
+pl + geom_hex() + scale_fill_gradient(high='red', low='green')
+
+install.packages('hexbin')
+pl + geom_density2d()
+pl + geom_density2d_filled()

@@ -77,3 +77,25 @@ pl + geom_hex() + scale_fill_gradient(high='red', low='green')
 install.packages('hexbin')
 pl + geom_density2d()
 pl + geom_density2d_filled()
+
+### Coordinates and facetting
+
+pl <- ggplot(mpg, aes(x=displ, y=hwy)) + geom_point()
+
+pl + coord_cartesian(xlim = c(1,4), ylim = c(15,30))
+
+pl + coord_fixed(ratio = 0.5/3)
+
+pl + facet_grid(. ~ cyl)
+pl + facet_grid(cyl ~ .)
+pl + facet_grid(drv ~ . )
+pl + facet_grid(drv ~ cyl)
+
+### THEME
+#theme_set(theme_minimal())
+library(ggthemes)
+ggplot(mtcars, aes(x=wt, y=mpg)) + 
+    geom_point() +
+    theme_economist()
+#install.packages('ggthemes')
+

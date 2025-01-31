@@ -222,3 +222,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Data for the course
+Data/
